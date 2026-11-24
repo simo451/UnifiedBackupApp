@@ -11,6 +11,9 @@ jobs:
         with:
           packages: 'platform-tools'
       - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.7
+      - run: gradle wrapper --gradle-version 8.7
       - run: echo "sdk.dir=" > local.properties
       - run: gradle assembleDebug --no-daemon
       - uses: actions/upload-artifact@v4
